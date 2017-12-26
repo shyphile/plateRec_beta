@@ -11,6 +11,10 @@ class IndexController extends Controller
 	public function __construct(){
 		parent::__construct();
 
+		$temp=func_get_arg(0);
+		if($temp==='a'){
+			return;
+		}
 		if(!Operator::isLogin()){
 			return $this->error('请先登入',url('Login/index'));
 		}

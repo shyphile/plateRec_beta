@@ -15,7 +15,10 @@ class MonitorController extends Controller
 		$info=$this->getPlateInfo($plateJsonData);
 		$jsonInfo=json_encode($info);
 		if(!isset($this->clientID)){
-			Gateway::sendToUid($this->uid,$jsonInfo);
+			$temp=new TestController();
+
+			$temp->updateA($this->uid,$jsonInfo);
+			// Gateway::sendToUid($this->uid,$jsonInfo);
 		}
 	}
 
