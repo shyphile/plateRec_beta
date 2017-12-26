@@ -1,0 +1,78 @@
+{extend name="index" /}
+{block name="title"}车辆信息管理{/block}
+{block name="content"}
+{php}
+$page=input('get.page');
+if(is_null($page)){
+$page=0;
+}
+else{
+$page=$page-1;
+}
+$pageSize=$page*config('paginate.list_rows');
+
+$_flag=false;
+if(isset($flag)){
+$_flag=$flag;
+}
+{/php}
+{eq name='_flag' value='1'}
+<a class="btn btn-danger btn-sm" id="returnBtn"><i class="glyphicon glyphicon-chevron-left"></i>&nbsp;返回</a>
+<input type="hidden" name="" id="flag" value="{$_flag}">
+{/eq}
+<hr />
+<table class="table table-hover table-bordered">
+	<tr class="info" align="center">
+		<th>序号</th>
+		<th>车牌</th>
+		<th>用户姓名</th>
+		<th>车类型</th>
+		<th>启用时间</th>
+		<th>到期时间</th>
+		<th>车辆备注</th>
+		<th>操作</th>
+	</tr>
+
+	{volist name="EntityClasses" id="_VehicleInfo" key="index"}
+	<tr>
+		<td>{$pageSize+$index}</td>
+		<td>{$_VehicleInfo->Plate}</td>
+		<td>{$_VehicleInfo->UserName}</td>
+		<td>{$_VehicleInfo->VehicleType}</td>
+		<td>{$_VehicleInfo->StartTime}</td>
+		<td>{$_VehicleInfo->EndTime}</td>
+		<td>{$_VehicleInfo->Remarks}</td>
+		<td>
+			<a href="{:url('edit?id='.$_VehicleInfo->ID)}" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-pencil"></i>&nbsp;编辑</a>
+			&nbsp;&nbsp;
+			<a href="{:url('delete?id='.$_VehicleInfo->ID)}" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</a>
+		</td>
+	</tr>
+	{/volist}
+</table>
+<script type="text/javascript">
+	$(document).ready(function(){
+		let _flag=$('#flag').val();
+		if(typeof(_flag) == "undefined")
+		{
+			$('#addBtn').hide();
+		}
+		$('#returnBtn').click(function(){
+			let path=location.href;
+			let pos=path.indexOf("index");
+			let _path=path.substring(0, pos)+"/index/userinfo";
+			location.href=_path;
+
+		});
+		
+	});
+	
+</script>
+{/block}
+{block name="page"}
+{eq name='isArr' value='0'}
+{$EntityClasses->render();}
+{/eq}
+{/block}
+
+

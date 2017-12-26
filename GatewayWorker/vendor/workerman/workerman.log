@@ -1,0 +1,14 @@
+2017-12-23 18:16:00 exception 'Exception' with message 'You can't send(NULL) to client, you need to convert it to a string. ' in C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\workerman-for-win\Protocols\Websocket.php:225
+Stack trace:
+#0 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(310): Workerman\Protocols\Websocket::encode(NULL, Object(Workerman\Connection\TcpConnection))
+#1 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\gateway-worker-for-win\src\Gateway.php(692): Workerman\Connection\TcpConnection->send(NULL)
+#2 [internal function]: GatewayWorker\Gateway->onWorkerMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #141)
+#5 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\gateway-worker-for-win\src\Gateway.php(279): Workerman\Worker->run()
+#8 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\Gateway->run()
+#9 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\Applications\YourApp\start_gateway.php(63): Workerman\Worker::runAll()
+#11 {main}

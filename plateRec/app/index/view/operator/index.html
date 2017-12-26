@@ -1,0 +1,28 @@
+{extend name="index" /}
+{block name="title"}操作员信息管理{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+	<tr class="info" align="center">
+		<th>工号</th>
+		<th>姓名</th>
+		<th>角色</th>
+		<th>操作</th>
+	</tr>
+	{volist name="EntityClasses" id="_Operator"}
+	<tr>
+		<td>{$_Operator->JobNumber}</td>
+		<td>{$_Operator->Name}</td>
+		<td>{$_Operator->RoleName}</td>
+		<td>
+			<a href="{:url('edit?id='.$_Operator->ID)}" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-pencil"></i>&nbsp;编辑</a>
+			&nbsp;&nbsp;
+			<a href="{:url('delete?id='.$_Operator->ID)}" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</a>
+		</td>
+	</tr>
+	{/volist}
+</table>
+{/block}
+{block name="page"}
+{$EntityClasses->render()}
+{/block}
+

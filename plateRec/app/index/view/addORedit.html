@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{block name="title"}标题{/block}</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="__STATIC__/jquery-2.1.1.min.js"></script>
+</head>
+<body style="margin:100px auto">
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			{php}$actionType=request()->action()==='add'?'save':'update';{/php}
+			<form action="{:url($actionType)}" method="post">
+				{block name="content"}{/block}
+				<a class="btn btn-primary btn-warning" id="cancelBTN">取消</a>
+				<button type="submit" class="btn btn-primary pull-right">保存</button>
+			</form>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	$('#cancelBTN').click
+	(
+		function(){
+			history.go(-1);
+		}
+	);
+</script>
+</html>

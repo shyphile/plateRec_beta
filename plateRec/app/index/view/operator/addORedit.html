@@ -1,0 +1,33 @@
+{extend name="addORedit" /}
+{block name="title"}
+{if $_Model->ID===0}
+新增操作员信息
+{else}
+编辑操作员信息
+{/if}
+{/block}
+{block name="content"}
+<input type="hidden" name="id" value="{$_Model->ID}">
+<div class="form-group">	
+	<label for="">登入名</label>
+	{eq name="_Model->ID" value="0"}
+	<input type="text" name="name" value="{$_Model->Name}" class="form-control">
+	{else /}<br>{$_Model->Name}
+	{/eq}
+</div>
+<div class="form-group">	
+	<label for="">密码</label>
+	<input type="text" name="password" {eq name="_Model->ID" value="0"} value="{$_Model->Password}" {else /} value="{$password}" {/eq} class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">权限</label>
+	<select name="rolename" class="form-control" >
+		<option value="管理员">管理员</option>
+		<option value="收费员" {eq name="_Model->RoleName" value="收费员"}selected{/eq}>收费员</option>
+	</select>
+</div>
+<div class="form-group">	
+	<label for="">工号</label>
+	<input type="text" name="jobnumber" value="{$_Model->JobNumber}" class="form-control">
+</div>
+{/block}

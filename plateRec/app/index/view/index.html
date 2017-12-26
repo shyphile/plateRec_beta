@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{block name="title"}页面标题{/block}</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/css/bootstrap.min.css">
+	<script type="text/javascript" src="__STATIC__/jquery-2.1.1.min.js"></script>
+	<style type="text/css">
+	{literal}
+	th,td{
+		text-align: center;
+	}
+	body{
+		/*overflow: hidden;*/
+	}
+
+	{/literal}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+		var title=document.title;
+		var titleSubstring=title.substr(0,2);
+		var navTagUL=document.getElementById('nav_ul');
+		var navTagLI=navTagUL.getElementsByTagName('li');
+		for(var i=0;i<navTagLI.length;i++){
+			var tagAString=navTagLI[i].childNodes[0].innerHTML;
+			var tagASubstring=tagAString.substr(0,2);
+			if(tagASubstring===titleSubstring){
+				navTagLI[i].className="active";
+			}	
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-default" role="navigation">
+					<div class="container-fluid">					
+						<div class="collapse navbar-collapse">
+							<ul class="nav navbar-nav" id="nav_ul">
+								<li class=""><a href="{:url('Userinfo/index')}">用户管理</a></li>
+								<li class=""><a href="{:url('Vehicleinfo/index')}">车辆管理</a></li>
+								<li class=""><a href="{:url('Chargetypes/index')}">收费设置</a></li>
+								<li class=""><a href="{:url('Course/index')}">车场设置</a></li>
+								<li class=""><a href="{:url('Course/index')}">车道设置</a></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="{:url('Login/logOut')}">注销</a></li>
+							</ul>
+							<div class="nav-header text-right pull-right">
+								{php}
+								$login=new app\index\controller\LoginController;
+								$name=$login->getLoginUser();
+								{/php}
+								<span class="navbar-brand">登入者:{$name}</span>
+							</div>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{block name="search"}
+				<hr>
+				<div class="row">
+					<div class="col-md-8">
+						<form class="form-inline">
+							<div class="form-group">
+								<label for="name" class="sr-only">姓名</label>
+								<input type="text" name="name" placeholder="姓名..." id="name" value="{:input('get.name')}" class="form-control">
+							</div>
+							<button type="submit" class="btn btn-primary" id="search"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
+						</form>
+					</div>
+					<div class="col-md-4 text-right" >
+						<a href="{:url('add')}" class="btn btn-primary" id="addBtn"><i class="glyphicon glyphicon-plus"></i>&nbsp;新增</a>
+					</div>
+				</div>
+				<hr>
+				{/block}
+				{block name="content"}{/block}
+				<!-- <div style="position: fixed;left: 600px;top:90%;"> -->
+					{block name="page"}{/block}
+				<!-- </div> -->
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+
+</html>

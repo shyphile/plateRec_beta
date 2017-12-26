@@ -1,0 +1,43 @@
+{extend name="addORedit" /}
+{block name="title"}
+{if $_Model->ID===0}
+新增车辆信息
+{else}
+编辑车辆信息
+{/if}
+{/block}
+{block name="content"}
+<input type="hidden" name="id" value="{$_Model->ID}">
+<div class="form-group">	
+	<label for="">用户名</label>
+	{gt name="_Model->ID" value="0"}
+	<input type="text" name="username" value="{$_Model->UserName}" class="form-control">
+	{else /}<br>{$_Model->UserName}
+	{/gt}
+</div>
+
+<div class="form-group">	
+	<label for="">车牌号</label>
+	<input type="text" name="plate" value="{$_Model->Plate}" class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">车辆类型</label>
+	<select name="vehicletype">
+		<option value="临时车">临时车</option>
+		<option value="月租车" {eq name="_Model->VehicleType" value="月租车"}selected {/eq} >月租车</option>
+
+	</select>
+</div>
+<div class="form-group">	
+	<label for="">启用时间</label>
+	<input type="text" name="starttime" value="{$_Model->StartTime}" class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">到期时间</label>
+	<input type="text" name="endtime" value="{$_Model->EndTime}" class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">车辆备注</label>
+	<input type="text" name="remarks" value="{$_Model->Remarks}" class="form-control">
+</div>
+{/block}
