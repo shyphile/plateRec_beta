@@ -1,0 +1,49 @@
+{extend name="addORedit" /}
+{block name="title"}
+{if $_Model->ParkID===0}
+新增车场信息
+{else}
+编辑车场信息
+{/if}
+{/block}
+{block name="content"}
+<input type="hidden" name="id" value="{$_Model->ParkID}">
+<div class="form-group">	
+	<label for="">车场名称</label>
+	<input type="text" name="ParkName" value="{$_Model->ParkName}" class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">总车位数</label>
+	<input type="text" name="TotalParkSpaces" value="{$_Model->TotalParkSpaces}" class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">临时车位数</label>
+	<input type="text" name="TotalTempParkSpaces" value="{$_Model->TotalTempParkSpaces}" class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">收费标准</label>
+	<select name="TempChargeID" class="form-control">
+		{volist name="_Model->getTempCharge()->select()" id="TempCharge"}
+		<option value="{$TempCharge->ChargeID}" {eq name="TempCharge->ChargeID" value="$_Model->TempChargeID" }selected{/eq}>{$TempCharge->ChargeName}</option>
+		{/volist}
+	</select>
+</div>
+<div class="form-group">	
+	<label for="">屏幕亮度</label>
+	<input type="text" name="ScreenLight" value="{$_Model->ScreenLight}" class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">语音音量</label>
+	<input type="text" name="VoiceVolume" value="{$_Model->VoiceVolume}" class="form-control">
+</div>
+<div class="form-group">	
+	<label for="">屏幕道行内容</label>
+	<input type="text" name="ScreenFirstLine" value="{$_Model->ScreenFirstLine}" class="form-control">
+</div>
+<div class="">
+	<label><input type="checkbox" name="IsInsidePark" value='1' {eq name="_Model->getData('IsInsidePark')" value='1'} checked {/eq}>内部停车场</label><br />
+	<label><input type="checkbox" name="MonthlyCarInAgain" value='1' {eq name="_Model->getData('MonthlyCarInAgain')" value='1'} checked {/eq}>月租车允许重复进出</label><br />
+	<label><input type="checkbox" name="MonthlyCarOverTimeIn" value='1' {eq name="_Model->getData('MonthlyCarOverTimeIn')" value='1'} checked {/eq}>月租车允许转临停</label><br />
+	<label><input type="checkbox" name="IsConfirmTemporary" value='1' {eq name="_Model->getData('IsConfirmTemporary')" value='1'} checked {/eq}>临时车入场需确认</label>	
+</div>
+{/block}

@@ -8,7 +8,7 @@ use app\index\model\Vehicleinfo;
 class VehicleinfoController extends IndexController
 {
 	public function __construct(){
-		parent::__construct();
+		parent::__construct('车牌号...');
 		$this->setModelClass(new Vehicleinfo);
 	}
 
@@ -35,6 +35,12 @@ class VehicleinfoController extends IndexController
 			$this->assign('EntityClasses',$EntityClasses);
 		}
 		$this->assign('flag',1);
+		$this->assign('placeInfo','车牌号码...');
 		return view('index');
 	}
+
+	// public function test(){
+	// 	$a=new Vehicleinfo;
+	// 	$a->getCamerainfoes();
+	// }
 }

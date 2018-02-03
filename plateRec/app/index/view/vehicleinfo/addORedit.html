@@ -7,37 +7,86 @@
 {/if}
 {/block}
 {block name="content"}
-<input type="hidden" name="id" value="{$_Model->ID}">
-<div class="form-group">	
-	<label for="">用户名</label>
-	{gt name="_Model->ID" value="0"}
-	<input type="text" name="username" value="{$_Model->UserName}" class="form-control">
-	{else /}<br>{$_Model->UserName}
-	{/gt}
-</div>
+<div class="row">
+	<div class="col-md-6">
+		<input type="hidden" name="id" value="{$_Model->ID}">
+		<div class="form-group">	
+			<label for="">用户名</label>
+			<br>{$_Model->UserName}
+		</div>
 
-<div class="form-group">	
-	<label for="">车牌号</label>
-	<input type="text" name="plate" value="{$_Model->Plate}" class="form-control">
+		<div class="form-group">	
+			<label for="">车牌号</label>
+			<input type="text" name="plate" value="{$_Model->Plate}" class="form-control" onkeyup="toUpperCase(this)"/>
+		</div>
+		<div class="form-group">	
+			<label for="">车辆类型</label>
+			<select name="vehicletype" class="form-control" id="vehicletype">
+				<option value="临时车">临时车</option>
+				<option value="月租车" {eq name="_Model->VehicleType" value="月租车"}selected {/eq} >月租车</option>
+			</select>
+		</div>
+		<div class="form-group" id="ChargeType">	
+			<label for="">收费标准</label>
+			<select name="ChargeType" class="form-control">
+				{volist name="_Model->getChargeTypes()->select()" id="_ChargeType"}
+				<option value="{$_ChargeType->ChargeID}" {eq name="_ChargeType->ChargeID" value="$_Model->ChargeTypeID" }selected{/eq}>{$_ChargeType->ChargeName}</option>
+				{/volist}
+			</select>
+		</div>
+		<div class="form-group">	
+			<label for="">启用时间</label>
+			<input type="date" name="starttime" value="{$_Model->StartTime|strtotime|date='Y-m-d',###}" class="form-control">
+		</div>
+		<div class="form-group">	
+			<label for="">到期时间</label>
+			<input type="date" name="endtime" value="{$_Model->EndTime|strtotime|date='Y-m-d',###}" class="form-control">
+		</div>
+		<div class="form-group">	
+			<label for="">车辆备注</label>
+			<input type="text" name="remarks" value="{$_Model->Remarks}" class="form-control">
+		</div>
+	</div>
+	<div class="col-md-6">
+		<table class="table table-hover table-bordered">
+			<tr class="info" align="center">
+				<th style="border: 0;text-align: center;;">道口名称</th>
+				<th style="border: 0;text-align: center;">权限控制</th>
+			</tr>
+			{volist name="$_Model->getCamerainfoes()" id="_Camerainfo"}
+			<tr>
+				<td style="text-align: center;" >
+					{$_Camerainfo->Name}
+				</td>
+				<td style="text-align: center;">
+					<input type="checkbox" name="EnableChanelData[]" {eq name="_Model->EnableChanelData>>($_Camerainfo->ChanelIndex-1) & 1" value='1'} checked {/eq}
+					value="{$_Camerainfo->ChanelIndex}" />
+				</td>
+			</tr>
+			{/volist}
+		</table>
+	</div>
 </div>
-<div class="form-group">	
-	<label for="">车辆类型</label>
-	<select name="vehicletype">
-		<option value="临时车">临时车</option>
-		<option value="月租车" {eq name="_Model->VehicleType" value="月租车"}selected {/eq} >月租车</option>
+<script language="JavaScript">
+	function toUpperCase(obj)
+	{
+		obj.value = obj.value.toUpperCase();
+	}
 
-	</select>
-</div>
-<div class="form-group">	
-	<label for="">启用时间</label>
-	<input type="text" name="starttime" value="{$_Model->StartTime}" class="form-control">
-</div>
-<div class="form-group">	
-	<label for="">到期时间</label>
-	<input type="text" name="endtime" value="{$_Model->EndTime}" class="form-control">
-</div>
-<div class="form-group">	
-	<label for="">车辆备注</label>
-	<input type="text" name="remarks" value="{$_Model->Remarks}" class="form-control">
-</div>
+	$(document).ready(function(){
+		checkVehicleType();
+		$('select#vehicletype').change(function(){ 
+			checkVehicleType()
+		});
+	});
+	function checkVehicleType(){
+		let s1=$('select#vehicletype option:selected').val();
+		if(s1==='月租车'){
+			$('#ChargeType').hide();
+		}else{
+			$('#ChargeType').show();
+		}
+	}
+</script>
+
 {/block}

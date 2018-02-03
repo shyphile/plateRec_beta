@@ -1,0 +1,61 @@
+{extend name="index" /}
+{block name="title"}在场车辆信息查询
+{/block}
+{block name="content"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/jquery-ui-1.12.1/jquery-ui.css">
+<div id="showDetail" style="display: none;"><img src="" id="showImg" alt="无此图片" width="800" /></div>
+<table class="table table-hover table-bordered">
+	<tr class="info" align="center">
+		<th>车牌号</th>
+		<th>用户名</th>
+		<th>收费标准</th>
+		<th>车辆类型</th>
+		<th>进场时间</th>
+		<th>车场名称</th>
+		<th>是否手动输入</th>
+		<th>入场通道名称</th>
+		<th>操 作</th>
+	</tr>
+	{volist name="EntityClasses" id="_Entity"}
+	<tr>
+		<td>{$_Entity.Plate}</td>
+		<td>{$_Entity.UserName}</td>
+		<td>{$_Entity.ChargeTypeName}</td>
+		<td>{$_Entity.VehicleType}</td>
+		<td>{$_Entity.InTime}</td>
+		<td>{$_Entity.ParkName}</td>
+		<td>{$_Entity.IsHandInput}</td>
+		<td>{$_Entity->getCamerainfoes->Name}</td>
+		<td>
+			<a href="{:url('delete?id='.$_Entity->Plate)}" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i>&nbsp;手动出场</a>
+		</td>
+		<td class="hide">{$_Entity.ImagePath}</td>
+	</tr>
+	{/volist}
+</table>
+{/block}
+{block name="page"}
+{$EntityClasses->render()}
+<script type="text/javascript" src="__STATIC__/jquery-ui-1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+	$('#addBtn').hide();
+	$('tr:not(:first)').dblclick(function(){
+		let imgPath=$(this).find('td').last().text();
+		$.getJSON("../Tool/getImage",{imgPath:imgPath},function(result){
+			$('#showImg').attr('src',result);
+			$('#showDetail').dialog({
+				width:'840',
+				show:'slide',
+				hide:'explode',
+				position:{
+					my: "left top",
+					at:"left+230 top+80,",
+					collision: "fit"
+				},
+				title:'图片预览'+'<--->'+imgPath
+			});
+		});
+	});
+</script>
+{/block}
+

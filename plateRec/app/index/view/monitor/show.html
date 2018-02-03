@@ -2,33 +2,125 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>实时监控</title>
+	<link rel="stylesheet" type="text/css" href="__STATIC__/jquery-ui-1.12.1/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/bootstrap/css/bootstrap.min.css">
 	<script type="text/javascript" src="__STATIC__/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="__STATIC__/vue.js"></script>
+	<script type="text/javascript" src="__STATIC__/jquery-ui-1.12.1/jquery-ui.js"></script>
 	<style type="text/css">
-	body{
+	.container{
 		width: 100%;
 	}
-	div{
-		border-right: 5px solid red;
-		width: 48%;
+	.row>.col-md-12>div>.btn{
+		width: 510px;
+		background-color: gray;
+		position: relative;
+		top: -4px;
+	}
+
+	.row>.col-md-12>div>.pic{
+		width: 510px;
+		margin-top: 5px;
+		-moz-box-shadow:2px 2px 5px #333333; 
+		-webkit-box-shadow:2px 2px 5px #333333; 
+		box-shadow:2px 2px 5px #333333;
+	}
+
+	.row>.col-md-12>div>.btn>a{
+		float: right;
+		margin-right: 10px;
+	}
+
+	.row>.col-md-12>div>.btn>span{
+		color: white;
+		font-weight: bold;
+		font-size: 1em;
 		float: left;
+		height: 2em;
+		line-height: 2em;
 	}
-	div>img{
-		width: 100%;
+	.list{
+		position: fixed;
+		right: 3%;
+		top: 2%;
+	}
+
+	.ui-dialog-titlebar{
+		display: none;
+	}
+	.ui-dialog .ui-dialog-content{
+		padding: 0;
 	}
 </style>
 </head>
 
 <body>
-	<div><img src=""/></div>
-	<div id="plateList">
-		<ol>
-			<li v-for="item in items">
-				{{item.plate}}
-			</li>
-		</ol>
+	<h4 class="text-left">车牌识别收费系统</h4>
+
+	<div id="showDetail" style="display: none;" >
+		<iframe id='iframebar' src="about:blank" frameBorder=0 marginHeight=0 marginWidth=0
+		style="position:absolute; visibility:inherit; top:0px;left:0px;height:100%;width:100%; z-Index:-1; ">
+	</iframe>
+	<!-- <img src="" id="showImg" alt="无此图片" width="800" /> -->
+	<div style="padding: 15px;">
+		<label>车牌号码<input type="text" id="plate" disabled="disabled" /></label><br />
+		<label>车辆类型<input type="text" id="VehicleType" disabled="disabled" /></label><br />
+		<label>入场时间<input type="text" id="InTime" disabled="disabled" /></label><br />
+		<label>出场时间<input type="text" id="outTime" disabled="disabled" /></label><br />
+		<label>停车时间<input type="text" id="parkingTime" disabled="disabled" /></label><br />
+		<label>收费标准<input type="text" id="ChargeTypeName" disabled="disabled" /></label><br />
+		<label>停车费用<input type="text" id="money" disabled="disabled" /></label><br />
 	</div>
+	<div style="padding: 15px;">
+		<button class="btn btn-primary btn-sm" id='rePlay'><i class="glyphicon glyphicon-pencil"></i>&nbsp;重新报价</button>
+		<button class="btn btn-primary btn-sm" id='confirmOpen'><i class="glyphicon glyphicon-trash"></i>&nbsp;开匣放行</button>
+	</div>
+	<div style="position:absolute; right: 5px;top:0px;">
+		<img id='showImg' src="" width='500'/>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{volist name='cameraIPs' id='_CameraIP'}
+			<div class="col-md-5">
+				<div class="obj">
+					<object classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921" codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab"  
+					width="510" height="286" id="vlc"> 
+					<param value="transparent" name="wmode">
+					<param name="mrl" value="rtsp://{$_CameraIP->IP}:8557/h264"></param>
+					<param name="fullscreen" value="false"></param>
+					<param name="controls" value="false"></param>	
+				</object>
+			</div>
+			<div class="btn">
+				<span>{$_CameraIP->Name}&nbsp;&nbsp;&nbsp;{$_CameraIP->IP}&nbsp;&nbsp;&nbsp;{$_CameraIP->getParkingconfig->ParkName}</span>
+				<button id="open" bindIP="{$_CameraIP->IP}" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-log-out"></i>&nbsp;开匣</button>
+				<button id="close" bindIP="{$_CameraIP->IP}" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-log-in"></i>&nbsp;关匣</button>	
+			</div>
+			<div class="pic"><img src="__STATIC__/../nopic.jpg" style="width: 100%;" id="Pic"></div>
+		</div>
+		{/volist}
+	</div>
+	<div class="col-md-2">
+	</div>
+</div>
+<div class="list" id="plateList">
+	<table class="table table-hover table-bordered">
+		<tr class="info" align="center">
+			<th>车牌号</th>
+			<th>收费金额</th>
+			<th>通行时间</th>
+		</tr>
+		<tr is="my-row" 
+		v-for="item in items"
+		:key='item.index'
+		v-bind="item">			
+	</tr>
+</table>
+</div>
+</div>
 </body>
 <script type="text/javascript">
 	let ws = new WebSocket("ws://127.0.0.1:8282");
@@ -36,16 +128,23 @@
 	var vm = new Vue({
 		el: '#plateList',
 		data: {
-			items: [
-
-			]
+			items:[]
+		},
+		components: {
+			'my-row': {
+				props: ['plate','money','inOutTime'],
+				template: "<tr align='center'><td>{{plate}}</td><td>{{money}}</td><td>{{inOutTime}}</td></tr>"
+			}
 		}
 	});
-// 服务端主动推送消息时会触发这里的onmessage
-ws.onmessage = function(e){
+	let index=0;
+	let winFlag=false;
+	ws.onmessage = function(e){
     // json数据转换成js对象
     var data = eval("("+e.data+")");
     var type = data.type || '';
+    
+    let resultSet=[];
     switch(type){
 	        // Events.php中返回的init类型的消息，将client_id发给后台进行uid绑定
 	        case 'init':
@@ -53,14 +152,135 @@ ws.onmessage = function(e){
 	            $.post("{:url('bind')}", {client_id: data.client_id}, function(data){}, 'json');
 	            break;
 	        // 当mvc框架调用GatewayClient发消息时直接alert出来
+	        case 'ping':
+	        break;
 	        default :
-	        $('img').attr('src','data:image/jpg;base64,'+data.base64Img);
-	        vm.items.push({plate:data.plate});
+	        $('#Pic').attr('src','data:image/jpg;base64,'+data.base64Img); 
+	        let obj={
+	        	id:index++,
+	        	plate:data.plate,
+	        	base64Img:data.base64Img
+	        };
+	        if(data.outTime){ 
+	        	obj.money=data.money;
+	        	obj.VehicleType=data.VehicleType;
+	        	obj.InTime=data.InTime;
+	        	obj.ChargeTypeName=data.ChargeTypeName;
+	        	obj.outTime=data.outTime;
+	        	obj.parkingTime=data.parkingTime;
+	        	if(!winFlag){
+	        		winFlag=true;
+	        		alertWin(obj);
+	        	}
+	        	else{
+	        		resultSet.push(obj);//需弹窗的结果排队等待处理
+	        	}
+	        }
+	        else{
+	        	obj.time=data.inTime;
+	        	vm.items.push(obj);
+	        }
+
+	        if(index>10){       	
+	        	vm.items.shift();
+	        }
 	        //document.write(e.data+"<br/>");
 	    }
 	};
 
-	
+	ws.onerror=function(e){
+		alert('服务器连接失败,请先打开workman');
+	}
+	ws.onopen=function(){
+		console.log('服务器连接成功.');	
+	}
+	$('#open').click(function(){
+		let dataArr=new Array('open:');
+		dataArr.push($(this).attr('bindIP'));
+		ws.send(JSON.stringify(dataArr));
+	});
 
+	$('#close').click(function(){
+		
+	});
+	function init(){
+		setCameraTime();
+		// setLEDTime();
+		// setMoveSpeed();
+		// setBrightnes();
+		playSound('初始化成功');
+	}
+	function setCameraTime(){
+		let dataArr=new Array('open:');
+		dataArr.push($(this).attr('bindValue'));
+		// console.log(JSON.stringify(dataArr));
+		ws.send(JSON.stringify(dataArr));
+	}
+
+	function alertWin(obj){
+		$('#plate').val(obj.plate);
+		$('#VehicleType').val(obj.VehicleType);
+		$('#InTime').val(obj.InTime);
+		$('#outTime').val(obj.outTime);
+		$('#parkingTime').val(obj.parkingTime);
+		$('#ChargeTypeName').val(obj.ChargeTypeName);
+		$('#money').val(obj.money);
+		$('#showImg').attr('src','data:image/jpg;base64,'+obj.base64Img);
+		$('#showDetail').dialog({
+			resizable: false,
+			modal: true,
+			width:'840',
+			show:'slide',
+			hide:'explode',
+			position:{
+				my: "left top",
+				at:"left+230 top+80,",
+				collision: "fit"
+			},
+		   	// buttons: {
+		   	// 	"重新报价": function() {
+		   	// 		$( this ).dialog( "close" );
+		   	// 	},
+		   	// 	'开匣放行': function() {
+		   	// 		$( this ).dialog( "close" );
+		   	// 	}
+		   	// }
+			// title:'图片预览'+'<--->'+imgPath
+		});
+	}
+	$('#rePlay').click(function(){
+		//重复播报
+		//websocket发送给workman来处理
+		let dataArr=new Array('open:');
+		dataArr.push($(this).attr('bindIP'));
+		dataArr.push($(this).attr('bindIP'));
+		ws.send(JSON.stringify(dataArr));
+	});
+	$('#confirmOpen').click(function(){
+		//确认开匣
+		//post给thinkphp5来处理
+	});
+
+</script>
+<script type="text/javascript">
+	// $('tr:not(:first)').dblclick(function(){
+	// 	let imgPath=$(this).find('td').last().text();
+	// 	$.getJSON("../Tool/getImage",{imgPath:imgPath},function(result){
+	// 		console.log(result);
+	// 		$('#showImg').attr('src',result);
+	// 		$('#showDetail').dialog({
+	// 			width:'840',
+	// 			show:'slide',
+	// 			hide:'explode',
+	// 			position:{
+	// 				my: "left top",
+	// 				at:"left+230 top+80,",
+	// 				collision: "fit"
+	// 			},
+	// 			title:'图片预览'+'<--->'+imgPath
+	// 		});
+	// 	});
+
+	// });
 </script>
 </html>

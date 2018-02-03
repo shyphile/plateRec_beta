@@ -96,12 +96,9 @@ class Operator extends Model implements BaseModelInterface
 
 	public static function saveModel($_Model=null,$postData)
 	{
-		if(is_null($_Model))
-		{
-			$_Model=new self;
-			$_Model->ID=ToolFunction::create_guid();
-			$_Model->Name=$postData['name'];
-		}
+		$_Model=new self;
+		$_Model->ID=ToolFunction::create_guid();
+		$_Model->Name=$postData['name'];
 		$_Model->Password=self::encryptPassword($postData['password']);
 		$_Model->RoleName=$postData['rolename'];
 		$_Model->JobNumber=$postData['jobnumber'];

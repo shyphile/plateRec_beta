@@ -1,5 +1,5 @@
 <?php
-namespace app\common;
+namespace Workerman\common;
 
 /**
  * led命令组包类

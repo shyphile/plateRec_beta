@@ -14,22 +14,40 @@
 		/*overflow: hidden;*/
 	}
 
+	.navbar{
+		background-color: white;
+	}
+
 	{/literal}
 </style>
 <script type="text/javascript">
-	window.onload=function(){
-		var title=document.title;
-		var titleSubstring=title.substr(0,2);
-		var navTagUL=document.getElementById('nav_ul');
-		var navTagLI=navTagUL.getElementsByTagName('li');
-		for(var i=0;i<navTagLI.length;i++){
-			var tagAString=navTagLI[i].childNodes[0].innerHTML;
-			var tagASubstring=tagAString.substr(0,2);
-			if(tagASubstring===titleSubstring){
-				navTagLI[i].className="active";
-			}	
-		}
-	}
+	// window.onload=function(){
+	// 	var title=document.title;
+	// 	var titleSubstring=title.substr(0,2);
+	// 	var navTagUL=document.getElementById('nav_ul');
+	// 	var navTagLI=navTagUL.getElementsByTagName('li');
+	// 	for(var i=0;i<navTagLI.length;i++){
+	// 		var tagAString=navTagLI[i].childNodes[0].innerHTML;
+	// 		var tagASubstring=tagAString.substr(0,2);
+	// 		if(tagASubstring===titleSubstring){
+	// 			navTagLI[i].className="active";
+	// 		}	
+	// 	}
+	// }
+	$(document).ready(function(){
+		let title=$('title').text();
+		title=title.substr(0,2);
+		let navTagLi=$('#nav_ul>li');
+		navTagLi.each(function(){
+			let temp=$(this).text();
+			temp=temp.substr(0,2);
+			if(title===temp){
+				$(this).attr('class','active');
+			}
+		});
+
+		
+	});
 </script>
 </head>
 <body>
@@ -43,8 +61,11 @@
 								<li class=""><a href="{:url('Userinfo/index')}">用户管理</a></li>
 								<li class=""><a href="{:url('Vehicleinfo/index')}">车辆管理</a></li>
 								<li class=""><a href="{:url('Chargetypes/index')}">收费设置</a></li>
-								<li class=""><a href="{:url('Course/index')}">车场设置</a></li>
-								<li class=""><a href="{:url('Course/index')}">车道设置</a></li>
+								<li class=""><a href="{:url('Parkingconfig/index')}">车场设置</a></li>
+								<li class=""><a href="{:url('Camerainfo/index')}">车道设置</a></li>
+								<li class=""><a href="{:url('Onparkvehicle/index')}">在场车辆表</a></li>
+								<li class=""><a href="{:url('Inoutrecord/index')}">进出记录表</a></li>
+								<li class=""><a href="{:url('Inoutrecord/index')}">实时监控</a></li>
 							</ul>
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="{:url('Login/logOut')}">注销</a></li>
@@ -70,7 +91,7 @@
 						<form class="form-inline">
 							<div class="form-group">
 								<label for="name" class="sr-only">姓名</label>
-								<input type="text" name="name" placeholder="姓名..." id="name" value="{:input('get.name')}" class="form-control">
+								<input type="text" name="name" placeholder="{$placeInfo}" id="name" value="{:input('get.name')}" class="form-control">
 							</div>
 							<button type="submit" class="btn btn-primary" id="search"><i class="glyphicon glyphicon-search"></i>&nbsp;查询</button>
 						</form>

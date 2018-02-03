@@ -24,4 +24,7 @@
 	<label for="">备注</label>
 	<input type="text" name="remarks" value="{$_Model->Remarks}" class="form-control">
 </div>
+<div class="">
+	<label><input type="checkbox" name="IsEnableOverflow" value='1' {eq name="_Model->getData('IsEnableOverflow')" value='1'} checked {/eq}>取消车位数限制</label>
+</div>
 {/block}

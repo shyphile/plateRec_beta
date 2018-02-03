@@ -1,5 +1,5 @@
 <?php
-namespace app\common;
+namespace Workerman\common;
 
 /**
  * led驱动板的控制类

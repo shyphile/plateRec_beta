@@ -1,0 +1,41 @@
+{extend name="addORedit" /}
+{block name="title"}
+{if $_Model->ChanelIndex===0}
+新增车道信息
+{else}
+编辑车道信息
+{/if}
+{/block}
+{block name="content"}
+<input type="hidden" name="id" value="{$_Model->ChanelIndex}">
+
+<div class="form-group">	
+	<label for="">所属车场</label>
+	<select name="ParkID" class="form-control">
+		{volist name="_Model->getParkingconfig()->select()" id="_Park"}
+		<option value="{$_Park->ParkID}" {eq name="_Park->ParkID" value="$_Model->ParkID" }selected{/eq}>{$_Park->ParkName}</option>
+		{/volist}
+	</select>
+</div>
+
+<div class="form-group">	
+	<label for="">道口名称</label>
+	<input type="text" name="Name" value="{$_Model->Name}" class="form-control">
+</div>
+
+<div class="form-group">	
+	<label for="">相机IP</label>
+	<input type="text" name="IP" value="{$_Model->IP}" class="form-control">
+</div>
+
+<div class="form-group">	
+	<label for="">终端IP</label>
+	<input type="text" name="TerminalIP" value="{$_Model->TerminalIP}" class="form-control">
+</div>
+
+<div class="">
+	<label><input type="checkbox" name="IsInCemera" value='1' {eq name="_Model->getData('IsInCemera')" value='1'} checked {/eq}>是否入口</label><br />
+	<label><input type="checkbox" name="EnableTempCar" value='1' {eq name="_Model->getData('EnableTempCar')" value='1'} checked {/eq}>是否允许临时车通行</label><br />
+	<label><input type="checkbox" name="IsEnable" value='1' {eq name="_Model->getData('IsEnable')" value='1'} checked {/eq}>是否启用本车道</label>	
+</div>
+{/block}

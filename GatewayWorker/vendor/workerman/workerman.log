@@ -12,3 +12,9 @@ Stack trace:
 #9 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
 #10 C:\xampp\htdocs\GatewayWorker-for-win\GatewayWorker-for-win\Applications\YourApp\start_gateway.php(63): Workerman\Worker::runAll()
 #11 {main}
+2018-01-23 05:26:03 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0
+2018-01-23 05:26:05 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0
+2018-01-23 05:26:06 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0
+2018-01-23 05:26:07 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0
+2018-01-23 05:26:08 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0
+2018-01-23 05:26:09 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0

@@ -1,0 +1,32 @@
+{extend name="index" /}
+{block name="title"}车场信息管理{/block}
+{block name="content"}
+<table class="table table-hover table-bordered">
+	<tr class="info" align="center">
+		<th>车场名称</th>
+		<th>总车位数</th>
+		<th>临时车位数</th>
+		<th>收费标准</th>
+		<th>是否内部车场</th>
+		<th>操作</th>
+	</tr>
+	{volist name="EntityClasses" id="_Entity"}
+	<tr>
+		<td>{$_Entity->ParkName}</td>
+		<td>{$_Entity->TotalParkSpaces}</td>
+		<td>{$_Entity->TotalTempParkSpaces}</td>
+		<td>{$_Entity->TempChargeName}</td>
+		<td>{$_Entity->IsInsidePark}</td>
+		<td>
+			<a href="{:url('edit?id='.$_Entity->ParkID)}" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-pencil"></i>&nbsp;编辑</a>
+			&nbsp;&nbsp;
+			<a href="{:url('delete?id='.$_Entity->ParkID)}" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</a>
+		</td>
+	</tr>
+	{/volist}
+</table>
+{/block}
+{block name="page"}
+{$EntityClasses->render()}
+{/block}
+

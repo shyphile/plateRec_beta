@@ -4,9 +4,9 @@ use think\Validate;
 /**
 * 
 */
-class Chargetypes extends Validate
+class Camerainfo extends Validate
 {
 	protected $rule=[
-		"ChargeName"=>"require|unique:chargetypes",
+	"Name"=>"require|unique:camerainfo",
 	];
 }

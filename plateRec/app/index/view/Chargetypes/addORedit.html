@@ -1,33 +1,70 @@
 {extend name="addORedit" /}
 {block name="title"}
-{if $_Model->ID===0}
-新增操作员信息
+{if $_Model->ChargeID===0}
+新增收费标准
 {else}
-编辑操作员信息
+编辑新增收费标准
 {/if}
 {/block}
 {block name="content"}
-<input type="hidden" name="id" value="{$_Model->ID}">
-<div class="form-group">	
-	<label for="">登入名</label>
-	{eq name="_Model->ID" value="0"}
-	<input type="text" name="name" value="{$_Model->Name}" class="form-control">
-	{else /}<br>{$_Model->Name}
-	{/eq}
+<div class="row">
+	<div class="col-md-6">
+		<input type="hidden" name="id" value="{$_Model->ChargeID}">
+		<div class="form-group">	
+			<label for="">标准名称</label>
+			<input type="text" name="ChargeName" value="{$_Model->ChargeName}" class="form-control">
+		</div>
+		<div class="form-group">	
+			<label for="">收费类型</label>
+			{eq name="_Model->ChargeID" value="0"}
+			<select type="text" name="ChargeType" value="{$_Model->ChargeType}" class="form-control">
+				<option>二十四小时式收费</option>
+				<option>二段式收费</option>
+				<option>记次收费</option>
+			</select> 
+			{else /}<br>{$_Model->ChargeType}
+			{/eq}
+		</div>
+		<div class="form-group">	
+			<label for="">免费时间</label>
+			<input type="text" name="Parm[FreeTime]" value="{$Parm.FreeTime}" class="form-control">
+		</div>
+		<div class="form-group">	
+			<label for="">封顶收费</label>
+			<input type="text" name="Parm[ChargeMaxAmount]" value="{$Parm.ChargeMaxAmount}" class="form-control">
+		</div>
+		<div class="form-group">	
+			<label for="">过夜费用</label>
+			<input type="text" name="Parm[OverNightCharges]" value="{$Parm.OverNightCharges}" class="form-control">
+		</div>
+		<div class="form-group">	
+			<label for="">首停单位</label>
+			<input type="text" name="Parm[FirstUnit]" value="{$Parm.FirstUnit}" class="form-control">
+		</div>
+		<div class="form-group">	
+			<label for="">首停收费</label>
+			<input type="text" name="Parm[FirstCharge]" value="{$Parm.FirstCharge}" class="form-control">
+		</div>
+		<div class="">
+			<label><input type="checkbox" name="Parm[IsFreeTimeCount]" value='1' {eq name="Parm.IsFreeTimeCount" value='1'} checked {/eq}>停车时间含免费时间</label><br />
+			<label><input type="checkbox" name="Parm[IsTopContainOverNight]" value='1' {eq name="Parm.IsTopContainOverNight" value='1'} checked {/eq}>封顶含过夜费</label><br />	
+		</div>
+	</div>
+	<div class="col-md-6">
+		<table class="table table-hover table-bordered">
+			<tr class="info" align="center">
+				<th style="border: 0;text-align: center;width: 4em;display: inline-block;">小时</th>
+				<th style="border: 0;text-align: center;">金额</th>
+			</tr>
+			{volist name="Parm.timePerMoney" id="_Parm" key="index"}
+			<tr>
+				<td style="text-align: center;" >{$index}</td>
+				<td><input type="text" name="Parm[timePerMoney][]" value="{$_Parm}" style="border: 0;text-align: center;" /></td>
+			</tr>
+			{/volist}
+		</table>
+	</div>
 </div>
-<div class="form-group">	
-	<label for="">密码</label>
-	<input type="text" name="password" {eq name="_Model->ID" value="0"} value="{$_Model->Password}" {else /} value="{$password}" {/eq} class="form-control">
-</div>
-<div class="form-group">	
-	<label for="">权限</label>
-	<select name="rolename" class="form-control" >
-		<option value="管理员">管理员</option>
-		<option value="收费员" {eq name="_Model->RoleName" value="收费员"}selected{/eq}>收费员</option>
-	</select>
-</div>
-<div class="form-group">	
-	<label for="">工号</label>
-	<input type="text" name="jobnumber" value="{$_Model->JobNumber}" class="form-control">
-</div>
+
+
 {/block}

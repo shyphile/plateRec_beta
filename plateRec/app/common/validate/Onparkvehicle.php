@@ -4,9 +4,9 @@ use think\Validate;
 /**
 * 
 */
-class Chargetypes extends Validate
+class Onparkvehicle extends Validate
 {
 	protected $rule=[
-		"ChargeName"=>"require|unique:chargetypes",
+	
 	];
 }
