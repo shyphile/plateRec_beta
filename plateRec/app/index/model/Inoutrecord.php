@@ -24,17 +24,29 @@ class Inoutrecord extends Model implements BaseModelInterface
         return $_Models;
     }
 
-    public function getIsInputAttr($value)
+    public function getIsInAttr($value)
     {
         $type = array(
-            "0" => "正常进入",
-            "1" => "正常外出",
+            "1" => "正常进入",
+            "0" => "正常外出",
         );
         if (isset($type[$value])) {
             return $type[$value];
         }
         return $type[1];
-    }
+    }  //IsHandInput
+
+     public function getIsHandInputAttr($value)
+    {
+        $type = array(
+            "0" => "否",
+            "1" => "是",
+        );
+        if (isset($type[$value])) {
+            return $type[$value];
+        }
+        return $type[1];
+    }  //IsHandInput
 
     public function getCamerainfoes()
     {
@@ -117,8 +129,7 @@ class Inoutrecord extends Model implements BaseModelInterface
 
     public static function saveModel($_Model = null, $postData)
     {
-
-        $plate = $postData['plate'];
+            $plate = $postData['plate'];
         if (is_null($_Model)) {
             $_Model            = new self;
             $_Model->VehicleID = ToolFunction::create_guid();
@@ -134,14 +145,15 @@ class Inoutrecord extends Model implements BaseModelInterface
         $_Model->ChargeType  = is_null($info) ? $parkinfo->TempChargeName : '';
         $_Model->VehicleType = !is_null($info) ? $info->getData('VehicleType') : '临时车';
         $cameraInfo          = self::getCamerainfo($postData['ipAddr']);
-        $_Model->IOType      = $cameraInfo->IsInCemera ? '正常进入' : '正常外出';
+        $_Model->IOType      = $cameraInfo->getData('IsInCemera') ? '正常进入' : '正常外出';
         $_Model->ImagePath   = self::setPic($postData['plate'], $postData['base64Img']);
 
-        $_Model->IsIn        = $cameraInfo->IsInCemera ? 1 : 0;
+        $_Model->IsIn        = $cameraInfo->getData('IsInCemera') ? 1 : 0;
         $_Model->ChanelIndex = $cameraInfo->ChanelIndex;
         $_Model->ChanelName  = $cameraInfo->Name;
         $_Model->IsBankUser  = 0;
         $_Model->IsHandInput = 0; //是否手动输入车牌产生的记录
+        // dump($_Model);
         $_Model->save();
         // $temp = $_Model->validate(true)->save($_Model->getData());
         // if ($temp === 1) {

@@ -21,6 +21,8 @@
 
 use Workerman\Connection\AsyncTcpConnection;
 use \GatewayWorker\Lib\Gateway;
+use \Workerman\common\LEDDrive;
+
 date_default_timezone_set('PRC'); //设置中国时区
 /**
  * 主逻辑
@@ -36,9 +38,20 @@ class Events
      * @param int $client_id 连接id
      */
     private static $GasyncConn = null;
+    private static $terminalIP = [];
     public static function onConnect($client_id)
     {
-        echo $client_id . "\n";
+        $ip = $_SERVER['REMOTE_ADDR'];
+        // echo $ip . "\n";
+        if (in_array($ip, self::$terminalIP)) {
+            Gateway::sendToClient($client_id, json_encode(array(
+                'type' => 'error',
+            )));
+            return;
+        }
+        self::$terminalIP[$client_id] = $ip;
+        // var_dump(self::$terminalIP);
+        // echo $client_id . "\n";
         Gateway::sendToClient($client_id, json_encode(array(
             'type'      => 'init',
             'client_id' => $client_id,
@@ -53,28 +66,16 @@ class Events
     public static function onMessage($client_id, $message)
     {
         $dataArr = json_decode($message, true);
-        var_dump($dataArr);
-        if (strpos($dataArr[0], ":") !== false) {
-            $code = strstr($dataArr[0], ":", true);
-            array_shift($dataArr);
+        $ip=$dataArr[0];
+        if (strpos($dataArr[1], ":") !== false) {
+            $code = substr($dataArr[1], 0, -1);
+            array_splice($dataArr,0,2);
             $content = $dataArr;
         } else {
-            $code    = $dataArr[0];
+            $code  = $dataArr[1];
             $content = [];
         }
-
-        if ($code !== 'connect') {
-            if (end($content) === 'resetled') {
-                self::sendDataToLED($code, $content, true);
-            } else {
-                var_dump($code, $content);
-                self::createAsyncTcpConnection(...$content);
-               // self::sendDataToLED($code, $content);
-            }
-
-        } else {
-            //self::createAsyncTcpConnection(...$content);
-        }
+        self::driveCamera($ip, $code, $content);
 
         // 向所有人发送
         // Gateway::sendToAll("$client_id said $message\r\n");
@@ -86,29 +87,73 @@ class Events
      */
     public static function onClose($client_id)
     {
+        echo "$client_id leave";
+        $ip               = $_SERVER['REMOTE_ADDR'];
+        self::$terminalIP = self::delByKey(self::$terminalIP, $client_id);
         // 向所有人发送
-        GateWay::sendToAll("$client_id logout\r\n");
+        // GateWay::sendToAll("$client_id logout\r\n");
+
+    }
+
+    private static function delByKey($data, $key)
+    {
+        // if (!is_array($arr)) {
+        //     return $arr;
+        // }
+        // foreach ($arr as $k => $v) {
+        //     if ($v == $value) {
+        //         unset($arr[$k]);
+        //     }
+        // }
+        // return $arr;
+
+        if (!array_key_exists($key, $data)) {
+            return $data;
+        }
+        $keys  = array_keys($data);
+        $index = array_search($key, $keys);
+        if ($index !== false) {
+            array_splice($data, $index, 1);
+        }
+        return $data;
+    }
+
+    public static function driveCamera($ip, $code, $content)
+    {
+        
+        $AsyncConn            = new AsyncTcpConnection("VehicleProtocol://{$ip}:8131");
+        $AsyncConn->onConnect = function ($asyncConn) use ($code, $content) {
+            echo "camera connect success--->" . date('h:i:s') . "\n";
+            self::$GasyncConn = $asyncConn;
+            self::$code($content);
+            $asyncConn->close();
+            self::$GasyncConn = null;
+        };
+        $AsyncConn->onClose = function ($asyncConn) {
+            echo "camera connection closed--->" . date('h:i:s') . "\n";
+        };
+        $AsyncConn->connect();
     }
 
     public static function createAsyncTcpConnection($ipAddr)
     {
-        
+
         $time_id;
         if (!is_null(self::$GasyncConn)) {
             return 'camera connected';
         }
         $AsyncConn            = new AsyncTcpConnection("VehicleProtocol://{$ipAddr}:8131");
         $AsyncConn->onConnect = function ($asyncConn) {
-           echo "camera connect success--->" . date('h:i:s') . "\n";
+            echo "camera connect success--->" . date('h:i:s') . "\n";
             self::$GasyncConn = $asyncConn;
             self::sendDataToLED('open', []);
             $asyncConn->close();
-            self::$GasyncConn=null;
+            self::$GasyncConn = null;
             // $GLOBALS['time_id']    = Timer::add(3, function () use ($asyncConn) {
             //     $asyncConn->send('heartBeatPacket');
             // });
             // $GLOBALS['Gconnection']->send('camera connect success');
-           
+
         };
         $AsyncConn->onMessage = function ($asyncConn, $returnval) {
             // var_dump($returnval);
@@ -126,33 +171,91 @@ class Events
 
     }
 
-    public static function sendDataToLED($func, array $data = null, $isResetLED = null, $channel = 2)
+    private static function init($content)
     {
+        $now     = date("Y-m-d H:i:s");
+        $dataArr = array
+        (
+            'cmd'        => "set_time",
+            "timestring" => $now,
+        );
+        self::sendVZcode($dataArr,0.5); //校正相机时间
+        self::sendDataToLED('setDateTime'); //校正led时间
+        self::sendDataToLED('playSound', ['初始化成功']); //校正led时间
+    }
+
+    private static function open($content)
+    {
+        self::delaySet(0);
+    }
+
+    private static function close($content)
+    {
+        self::delaySet(1);
+    }
+
+    private static function carChargeMessage($content)
+    {
+        self::sendDataToLED('carChargeMessage', $content); //校正led时间
+    }
+
+     private static function operationMessage($content)
+    {
+        self::open([]);
+        self::sendDataToLED('operationMessage', $content); //校正led时间
+    }
+
+
+    private static function delaySet($channel)
+    {
+        $dataArr = array
+        (
+            'cmd'   => "ioctl",
+            "delay" => 500,
+            "io"    => $channel,
+            "value" => 2,
+        );
+        self::sendVZcode($dataArr,0.5); 
+    }
+
+    private static function sendVZcode($arrayData,$delayTime=1)
+    {
+        //所有发送给相机的指令在些都要等待0.5秒再执行
+        // 以免发送的数据粘包
+        // 后续可以改进，通过$result结果判断队列中要发送的数据。
+        // 算法可以参考前端收费窗口排队弹出的逻辑
+
         if (is_null(self::$GasyncConn)) {
             return 'camera no connect';
         }
+        $result = self::$GasyncConn->send($arrayData);
+        sleep($delayTime);
+    }
 
-        // $channel = ($channel === 1 ? 'rs485-1' : 'rs485-2');
-        // if (is_null($data)) {
-        //     $comData = LEDDrive::$func();
-        // } else {
-        //     $comData = LEDDrive::$func(...$data);
-        // }
+    public static function sendDataToLED($func, array $data = null, $isResetLED = null, $channel = 2)
+    {
+
+        $channel = ($channel === 1 ? 'rs485-1' : 'rs485-2');
+        if (is_null($data)) {
+            $comData = LEDDrive::$func();
+        } else {
+            $comData = LEDDrive::$func(...$data);
+        }
         $dataArr = array
-            (
-            'cmd'   => "ioctl",
-            "delay" => 1000,
-            "io"    => 0,
-            "value" => 2,
-
+        (
+            'cmd'     => "ttransmission",
+            "subcmd"  => 'send',
+            "datalen" => $comData['len'],
+            'data'    => $comData['code'],
+            'comm'    => $channel,
         );
-        $result = self::$GasyncConn->send($dataArr);
-        // if (!is_null($isResetLED)) {
-        //     sleep(0.5); //延时0.5s重启控制器
-        //     $method = __FUNCTION__;
-        //     $method('softRest');
-        // }
-        return $result;
+        self::sendVZcode($dataArr); //校正led时间
+        // $result = $GLOBALS['GasyncConn']->send($dataArr);
+        if (!is_null($isResetLED)) {
+            $method = __FUNCTION__;
+            $method('softRest');
+        }
+        // return $result;
 
     }
 

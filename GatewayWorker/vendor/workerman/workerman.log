@@ -18,3 +18,790 @@ Stack trace:
 2018-01-23 05:26:07 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0
 2018-01-23 05:26:08 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0
 2018-01-23 05:26:09 Gateway: Worker->name conflict. Key:127.0.0.1:XHbusinessworker:0
+2018-02-05 17:20:58 Error: Call to undefined function dump() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:52
+Stack trace:
+#0 [internal function]: Events::onConnect('7f0000010b54000...')
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(379): call_user_func('Events::onConne...', '7f0000010b54000...')
+#2 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#11 {main}
+2018-02-06 16:58:53 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 84 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:122
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(84): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["playSound","\xE5...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["playSound","\xE5...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-06 17:33:10 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init",["192.1...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init",["192.1...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:16:27 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init","192.16...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init","192.16...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:16:28 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init",null]')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init",null]')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:16:44 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init","192.16...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init","192.16...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:16:45 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init",null]')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init",null]')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:17:35 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init","192.16...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init","192.16...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:17:36 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init",null]')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init",null]')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:19:05 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init","192.16...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init","192.16...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:19:06 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init",null]')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init",null]')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:20:15 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init","192.16...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init","192.16...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:20:16 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init",null]')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init",null]')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:20:52 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init","192.16...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init","192.16...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 09:20:53 ArgumentCountError: Too few arguments to function Events::createAsyncTcpConnection(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 80 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:115
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(80): Events::createAsyncTcpConnection()
+#1 [internal function]: Events::onMessage('7f0000010b54000...', '["init","192.16...')
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(384): call_user_func('Events::onMessa...', '7f0000010b54000...', '["init","192.16...')
+#3 [internal function]: GatewayWorker\BusinessWorker->onGatewayMessage(Object(Workerman\Connection\AsyncTcpConnection), Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(629): call_user_func(Array, Object(Workerman\Connection\AsyncTcpConnection), Array)
+#5 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(286): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 02:58:33 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:33 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:33 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:34 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:34 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:35 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:35 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:36 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:36 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:37 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:37 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:38 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:38 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:39 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:39 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:40 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:40 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:41 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:41 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:42 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:42 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:43 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:43 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:44 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:44 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:45 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:45 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:46 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:46 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:47 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:47 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:48 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:48 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:49 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:49 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:50 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:50 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:51 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:51 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:52 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:52 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:53 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:53 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:54 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:54 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:55 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:55 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:56 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:56 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:57 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:57 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:58 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:58 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:59 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:58:59 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:00 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:00 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:01 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:01 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:02 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:02 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:03 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:03 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:04 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:05 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:05 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:05 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:06 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:06 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:07 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:07 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:08 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:08 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:09 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:10 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:10 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:11 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:11 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:12 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:12 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:28 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:28 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:29 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:29 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:30 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:30 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:31 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:31 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:32 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:32 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:33 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:33 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:34 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:34 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:35 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:35 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:36 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:36 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:37 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:37 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:38 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:38 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:39 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:39 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:40 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:40 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:41 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:41 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:42 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:43 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:43 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:43 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:44 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:45 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:45 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:46 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:46 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:47 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:47 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:48 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:48 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:49 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:49 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:50 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:50 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:51 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:51 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:52 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:52 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:53 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:53 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:54 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:54 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:55 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:55 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:56 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:56 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:57 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:57 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:58 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:58 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:59 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 02:59:59 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:00 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:00 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:01 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:01 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:02 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:02 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:03 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:03 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:04 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:04 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:05 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:05 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:06 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:06 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:07 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:07 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:08 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:08 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:09 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:09 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:10 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:10 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:11 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:11 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:12 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:12 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:13 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:13 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:14 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:14 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:15 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:15 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:16 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:16 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:17 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:17 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:18 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:18 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:19 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:19 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:20 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:20 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:21 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:21 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:36 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:36 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:37 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:37 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:38 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:38 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:39 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:39 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:40 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:40 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:41 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:41 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:42 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:42 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:43 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:43 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:44 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:44 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:45 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:45 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:46 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:46 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:47 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:47 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:48 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:48 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:49 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:49 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:50 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:50 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:51 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:52 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:00:52 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:01:04 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:01:04 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:01:05 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:01:05 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:01:06 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:01:06 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:01:07 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 03:01:07 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 11:12:09 Error: Function name must be a string in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:118
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 11:14:11 Error: Function name must be a string in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:118
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 11:41:44 Error: Class 'LEDDrive' not found in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:195
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(173): Events::sendDataToLED('setDateTime')
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(118): Events::init(Array)
+#2 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#4 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#11 {main}
+2018-02-07 11:42:37 Error: Class 'LEDDrive' not found in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:195
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(173): Events::sendDataToLED('setDateTime')
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(118): Events::init(Array)
+#2 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#4 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#11 {main}
+2018-02-07 11:47:05 TypeError: Argument 2 passed to Events::sendDataToLED() must be of the type array or null, string given, called in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 175 and defined in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:191
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(175): Events::sendDataToLED('playSound', '\xE5\x88\x9D\xE5\xA7\x8B\xE5\x8C\x96\xE6\x88\x90\xE5\x8A\x9F')
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(119): Events::init(Array)
+#2 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#4 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#11 {main}
+2018-02-07 13:10:13 Error: Call to undefined method Events::open() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:119
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #68)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 14:16:10 Error: Call to undefined function delaySet() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:190
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(129): Events::open(Array)
+#1 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#2 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#3 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #33)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#10 {main}
+2018-02-07 14:53:08 Error: Call to undefined method Events::carChargeMessage() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:129
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #47)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 15:00:20 ArgumentCountError: Too few arguments to function Workerman\common\LEDDrive::carChargeMessage(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 237 and exactly 7 expected in F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\common\LEDDrive.php:83
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(237): Workerman\common\LEDDrive::carChargeMessage()
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(200): Events::sendDataToLED('carChargeMessag...', Array)
+#2 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(129): Events::carChargeMessage(Array)
+#3 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#5 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #32)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 15:10:04 Error: Call to undefined method Events::carChargeMessage:() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:129
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #35)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 15:11:59 Error: Call to undefined method Events::carChargeMessage:() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:129
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #32)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 15:14:36 Error: Call to undefined method Events::carChargeMessage:() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:129
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #33)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 15:14:46 Error: Call to undefined method Events::carChargeMessage:() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:129
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 15:27:50 Error: Call to undefined method Events::carChargeMessage:() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:130
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #32)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 15:29:18 Error: Call to undefined method Events::carChargeMessage:() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:130
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #32)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 08:34:32 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 15:34:44 Error: Function name must be a string in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:130
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 15:36:00 Error: Function name must be a string in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:130
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 08:44:15 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 08:44:15 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 08:44:16 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 08:44:16 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 08:44:17 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 08:44:17 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 08:44:18 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 08:44:18 Register auth timeout (127.0.0.1). See http://wiki.workerman.net/Error4 for detail
+2018-02-07 16:53:23 Error: Call to undefined method Events::operationMessage() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:128
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #44)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 16:53:25 Error: Call to undefined method Events::operationMessage() in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:128
+Stack trace:
+#0 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#1 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#2 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #29)
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#9 {main}
+2018-02-07 09:53:26 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-07 09:53:26 SendBufferToWorker fail. The connections between Gateway and BusinessWorker are not ready. See http://wiki.workerman.net/Error3 for detail
+2018-02-07 16:54:36 ArgumentCountError: Too few arguments to function Workerman\common\LEDDrive::carChargeMessage(), 4 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 241 and exactly 7 expected in F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\common\LEDDrive.php:83
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(241): Workerman\common\LEDDrive::carChargeMessage(2, '\xE4\xB8\x80\xE8\xB7\xAF\xE9\xA1\xBA\xE9\xA3\x8E', 10, true)
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(204): Events::sendDataToLED('carChargeMessag...', Array)
+#2 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(128): Events::operationMessage(Array)
+#3 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#5 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #34)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 16:58:59 ArgumentCountError: Too few arguments to function Workerman\common\LEDDrive::carChargeMessage(), 4 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 241 and exactly 7 expected in F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\common\LEDDrive.php:83
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(241): Workerman\common\LEDDrive::carChargeMessage(2, '\xE4\xB8\x80\xE8\xB7\xAF\xE9\xA1\xBA\xE9\xA3\x8E', 10, 1)
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(204): Events::sendDataToLED('carChargeMessag...', Array)
+#2 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(128): Events::operationMessage(Array)
+#3 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#4 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#5 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #34)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#11 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#12 {main}
+2018-02-07 17:32:01 ArgumentCountError: Too few arguments to function Events::open(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 204 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:187
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(204): Events::open()
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(128): Events::operationMessage(Array)
+#2 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#4 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #33)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#11 {main}
+2018-02-07 17:32:51 ArgumentCountError: Too few arguments to function Events::open(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 204 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:187
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(204): Events::open()
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(128): Events::operationMessage(Array)
+#2 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#4 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #34)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#11 {main}
+2018-02-07 17:34:27 ArgumentCountError: Too few arguments to function Events::open(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 204 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:187
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(204): Events::open()
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(128): Events::operationMessage(Array)
+#2 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#4 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #34)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#11 {main}
+2018-02-07 17:36:49 ArgumentCountError: Too few arguments to function Events::open(), 0 passed in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php on line 204 and exactly 1 expected in F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php:187
+Stack trace:
+#0 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(204): Events::open()
+#1 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\Events.php(128): Events::operationMessage(Array)
+#2 [internal function]: Events::{closure}(Object(Workerman\Connection\AsyncTcpConnection))
+#3 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Connection\AsyncTcpConnection.php(296): call_user_func(Object(Closure), Object(Workerman\Connection\AsyncTcpConnection))
+#4 [internal function]: Workerman\Connection\AsyncTcpConnection->checkConnection(Resource id #35)
+#5 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Events\Select.php(296): call_user_func_array(Array, Array)
+#6 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(856): Workerman\Events\Select->loop()
+#7 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\gateway-worker-for-win\src\BusinessWorker.php(190): Workerman\Worker->run()
+#8 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(473): GatewayWorker\BusinessWorker->run()
+#9 F:\html5Study\plateRec_beta\GatewayWorker\vendor\workerman\workerman-for-win\Worker.php(382): Workerman\Worker::runAllWorkers()
+#10 F:\html5Study\plateRec_beta\GatewayWorker\Applications\YourApp\start_businessworker.php(35): Workerman\Worker::runAll()
+#11 {main}

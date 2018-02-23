@@ -7,6 +7,7 @@ use app\index\model\Camerainfo;
 use app\index\model\Chargetypes;
 use app\index\model\Inoutrecord;
 use app\index\model\Onparkvehicle;
+use app\index\model\Vehicleinfo;
 use think\Controller;
 
 /**
@@ -31,6 +32,7 @@ class MonitorController extends Controller
         $plate      = $info['plate'];
         $now        = date("Y-m-d H:i:s");
         $camerainfo = Camerainfo::where('IP', $cameraIP)->field('TerminalIP,IsInCemera,EnableTempCar,IsEnable')->find();
+        $carInfo    = Vehicleinfo::where('Plate', $plate)->field('UserName,VehicleType,EndTime')->find();
 
         if (!is_null($camerainfo)) {
             $terminalIP = $camerainfo->getData('TerminalIP');
@@ -38,25 +40,44 @@ class MonitorController extends Controller
             //判断对应电脑实时监控有没开
             if (Gateway::isUidOnline($terminalIP)) {
                 if ($camerainfo->getData('IsEnable')) {
+
+                    //车辆进场处理
                     if ($camerainfo->getData('IsInCemera')) {
-                        array_merge($info, ['inTime' => $now]);
+
+                        $info     = array_merge($info, ['InTime' => $now]);
                         $jsonInfo = json_encode($info);
                         Onparkvehicle::saveModel(null, $info);
                         Inoutrecord::saveModel(null, $info);
                         Gateway::sendToUid($terminalIP, $jsonInfo);
-                        return $this->responseToCamera($info['plate']); //控制相机指令
+                        $VehicleType = null;
+                        if (!is_null($carInfo)) {
+                            $VehicleType = $carInfo->getData('VehicleType');
+                        }
+                        return $this->responseToCamera($info['plate'], $VehicleType,0); //控制相机指令
+                    }
+
+                    //车辆出场处理
+                    //月租车
+                    if (!is_null($carInfo)) {
+                         $info     = array_merge($info, ['InTime' => $now]);
+                        $jsonInfo = json_encode($info);
+                        Gateway::sendToUid($terminalIP, $jsonInfo);
+                        return $this->responseToCamera($info['plate'], '月租车', 1); //控制相机指令
                     }
                     $outCarInfo = Onparkvehicle::where('Plate', $plate)->field('VehicleType,InTime,ChargeTypeID,ChargeTypeName')->find();
 
                     if (is_null($outCarInfo)) {
-                        return '无入场记录';
+                        $info     = array_merge($info, ['type' => 'noRecord']);
+                        $jsonInfo = json_encode($info);
+                        Gateway::sendToUid($terminalIP, $jsonInfo);
+                        return $this->responseToCamera($info['plate'], '无记录', 2); //控制相机指令
                     }
                     $timediff = $this->timediff($outCarInfo->getData('InTime'), $now);
 
                     $Chargetypes   = Chargetypes::getOneModel($outCarInfo->getData('ChargeTypeID'));
                     $chargeParmArr = $Chargetypes->ReadParmFrom24();
 
-                    $parkingDay  = $timediff['day'] ? $timediff['day'] . '天' : '';
+                    $parkingDay  = $timediff['day'] ? $timediff['day'] . '天' : '0天';
                     $parkingHour = $timediff['hour'] ? $timediff['hour'] . '时' : '0时';
                     $parkingMin  = ($timediff['min'] > 1) ? $timediff['min'] . '分' : '0分';
                     $parkingSec  = ($timediff['sec'] > 1) ? $timediff['sec'] . '秒' : '0秒';
@@ -65,7 +86,7 @@ class MonitorController extends Controller
                     $tempInfo    = array('outTime' => $now, 'money' => $money, 'parkingTime' => $_timediff);
                     $info        = array_merge($info, $outCarInfo->toArray());
                     $info        = array_merge($info, $tempInfo);
-                    dump($info);
+                    // dump($info);
                     $jsonInfo = json_encode($info);
                     Gateway::sendToUid($terminalIP, $jsonInfo);
                 }
@@ -113,13 +134,25 @@ class MonitorController extends Controller
 
     public function responseToCamera(...$param)
     {
-        $arrValue = LEDDrive::carIOProcess(3, $param[0], '月租车', '欢迎光临', 5);
-        $code     = $arrValue['code'];
-        $len      = $arrValue['len'];
-        $data     = [
+        $vehicleType = isset($param[1]) ? $param[1] : '临时车';
+        switch ($param[2]) {
+            case 0:
+                $arrValue = LEDDrive::carIOProcess(3, $param[0], $vehicleType, '欢迎光临', 10);
+                break;
+            case 1:
+                $arrValue = LEDDrive::carIOProcess(3, $param[0], $vehicleType, '一路顺风', 10);
+                break;
+           case 2:
+                $arrValue = LEDDrive::carIOProcess(3, $param[0], $vehicleType, '无入场记录', 10);
+                break;
+        }
+        
+        $code = $arrValue['code'];
+        $len  = $arrValue['len'];
+        $data = [
             "Response_AlarmInfoPlate" =>
             [
-                // 'info'       => 'ok',
+                'info'       => 'ok',
                 "serialData" => [
                     [
                         "serialChannel" => 1,
@@ -166,5 +199,26 @@ class MonitorController extends Controller
         //$_SERVER['REMOTE_ADDR'] 不能用localhost访问 用ip地址的形式
         $client_id = input('post.client_id');
         Gateway::bindUid($client_id, $_SERVER['REMOTE_ADDR']);
+    }
+
+    public function saveOutRecord()
+    {
+        $postData = input('post.');
+        // $postData=[
+        //     'id'=>3,
+        //     'plate'=>'鄂AF0236',
+        //     'ipAddr'=>'192.168.0.21',
+        //     'time'=>'2018-02-08 09:41:38',
+        //     'base64Img'=>'',
+        //     'money'=>'3',
+        //     'VehicleType'=>'临时车',
+        //     'ChargeTypeName'=>'低收费标准',
+        //     'outTime'=>'2018-02-08 11:46:58',
+        //     'parkingTime'=>'0天2时5分20秒'
+        // ];
+        // foreach ($postData as $key => $value) {
+        //     $this->writeTxt($key.'=>'.$value);
+        // }
+        Inoutrecord::saveModel(null, $postData);
     }
 }

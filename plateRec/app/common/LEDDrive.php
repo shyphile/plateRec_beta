@@ -82,6 +82,7 @@ class LEDDrive
     //出场收费信息
     public static function carChargeMessage($Color, $Plate, $UseDays, $UseHours, $UseMinutes, $ChargeMessage, $DispTime)
     {
+
         $DataArry    = array();
         $PlateArray  = static::encodeGBK2Bytes($Plate);
         $ChargeArray = static::encodeGBK2Bytes($ChargeMessage);
